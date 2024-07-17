@@ -1,0 +1,67 @@
+repos:
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.92.0 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+  hooks:
+    - id: terraform_fmt
+      files: \.y(a)?ml$
+      exclude: '\.terraform/'
+    - id: terraform_docs
+      files: \.y(a)?ml$
+      exclude: '\.terraform/'
+    - id: tfupdate
+      files: \.y(a)?ml$
+      exclude: '\.terraform/'
+    - id: terraform_tflint
+      files: \.y(a)?ml$
+      exclude: '\.terraform/'
+    - id: terraform_providers_lock
+      files: \.y(a)?ml$
+      exclude: '\.terraform/'
+    # - id: terraform_trivy
+    #   files: \.y(a)?ml$
+    #   exclude: '\.terraform/'
+    # - id: terrascan
+    #   files: \.y(a)?ml$
+    #   exclude: '\.terraform/'
+    # - id: infracost_breakdown
+    #   files: \.y(a)?ml$
+    #   exclude: '\.terraform/'
+    # - id: terraform_checkov
+    #   files: \.y(a)?ml$
+    #   exclude: '\.terraform/'
+
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.6.0
+  hooks:
+    # Git style
+    - id: check-added-large-files
+    - id: check-merge-conflict
+    - id: check-vcs-permalinks
+    - id: forbid-new-submodules
+    - id: no-commit-to-branch
+      args: [--branch, master, --branch, main]
+
+    # Common errors
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
+      args: [--markdown-linebreak-ext=md]
+      exclude: CHANGELOG.md
+    - id: check-yaml
+    - id: check-merge-conflict
+    - id: check-executables-have-shebangs
+
+    # Cross platform
+    - id: check-case-conflict
+    - id: mixed-line-ending
+      args: [--fix=lf]
+
+    # Security
+    - id: detect-aws-credentials
+      args: ['--allow-missing-credentials']
+    - id: detect-private-key
+
+# - repo: https://github.com/terraform-docs/terraform-docs
+#   rev: "v0.18.0"
+#   hooks:
+#     - id: terraform-docs-go
+#       args: ["markdown", "table", "--output-file", "README.md", "."]
