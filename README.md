@@ -1,6 +1,13 @@
 # Terraform Modules Usage Guide
 
-This repository contains Terraform modules to provision infrastructure on Google Cloud Platform (GCP), Microsoft Azure, and DigitalOcean. Each module is designed to be reusable and customizable based on your specific requirements.
+This repository contains reusable Terraform modules for managing infrastructure across multiple cloud providers, including Google Cloud Platform (GCP), Microsoft Azure, and DigitalOcean. Each module is designed to be highly customizable, allowing for easy integration and management of resources within your cloud environments.
+
+# Repository Structure
+
+- **modules/google/**: Contains Terraform modules for Google Cloud Platform.
+- **modules/azure/**: Contains Terraform modules for Microsoft Azure.
+- **modules/digitalocean/**: Contains Terraform modules for DigitalOcean.
+- **examples/**: Contains Sample deployment files using the modules
 
 ## Prerequisites
 
@@ -105,6 +112,3 @@ Follow these steps to use the modules:
 ## Customization
 
 Each module supports various input variables that you can customize according to your project requirements. Refer to the respective module's `variables.tf` file for a comprehensive list of configurable options.
-
-
-
